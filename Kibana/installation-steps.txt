@@ -1,0 +1,20 @@
+sudo yum install java-1.8.0-openjdk.x86_64 wget
+cd /opt
+wget https://artifacts.elastic.co/downloads/kibana/kibana-6.2.4-x86_64.rpm
+sudo rpm --install kibana-6.2.4-x86_64.rpm
+sudo chkconfig --add kibana //chkconfig command to configure Kibana to start automatically when the system boots up
+sudo -i service kibana start
+sudo -i service kibana status
+cd /var/log/kibana/
+ls -lth
+tail -80 kibana.stdout
+vi /etc/kibana/kibana.yml
+--------------------------------------------------------------------------------------------
+server.port: 5601
+   server.host: "192.168.2.153"
+   server.name: "Kibana01.vipin.com"
+   elasticsearch.url: "http://192.168.2.150:9200/"
+----------------------------------------------------------------------------
+
+sudo -i service kibana restart
+sudo -i service kibana status
