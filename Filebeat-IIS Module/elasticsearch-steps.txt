@@ -1,0 +1,11 @@
+---Install 2 plugins on elasticsearch machine if requires ----------------------
+--------------------------------------------------------------------------------
+sudo service elasticsearch stop
+sudo service elasticsearch status
+cd /usr/share/elasticsearch/
+sudo bin/elasticsearch-plugin install ingest-user-agent
+sudo bin/elasticsearch-plugin install ingest-geoip
+sudo service elasticsearch stop
+sudo service elasticsearch start
+sudo service elasticsearch status
+-----------------------------------------------------------------------------------
