@@ -1,0 +1,12 @@
+curl -L -O https://artifacts.elastic.co/downloads/beats/filebeat/filebeat-6.3.1-x86_64.rpm
+sudo rpm -vi filebeat-6.3.1-x86_64.rpm
+filebeat modules list
+cd /etc/filebeat/
+filebeat modules enable mysql
+filebeat modules list
+cd modules.d/
+cd /var/log
+cd mysqld/
+cd /etc/filebeat/
+filebeat setup -e
+service filebeat start
